@@ -1,0 +1,14 @@
+<div class="container">
+  <form #f="ngForm" (submit)="onSubmit(f)">
+    <input type="text" name="title" ngModel />
+    <button>提交</button>
+  </form>
+  <p>当前路由: {{currentRoute | async}}</p>
+  <p>共:{{todoTotal | async }}条数据</p>
+  <ul class="list-group">
+    <li class="list-item" *ngFor="let todo of todos | async">
+      {{todo.title}}
+      <button (click)="deleteTodo(todo.id)">删除</button>
+    </li>
+  </ul>
+</div>
